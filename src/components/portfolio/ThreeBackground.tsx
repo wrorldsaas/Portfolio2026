@@ -2,7 +2,7 @@
 
 import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Float, MeshDistortMaterial } from '@react-three/drei'
+import { Float } from '@react-three/drei'
 import * as THREE from 'three'
 
 function FloatingSphere({ position, scale }: {
@@ -24,11 +24,8 @@ function FloatingSphere({ position, scale }: {
     <Float speed={2} rotationIntensity={1} floatIntensity={2}>
       <mesh ref={meshRef} position={position} scale={scale}>
         <sphereGeometry args={[1, 32, 32]} />
-        <MeshDistortMaterial
+        <meshStandardMaterial
           color="#d4af37"
-          attach="material"
-          distort={0.3}
-          speed={2}
           roughness={0.2}
           metalness={0.9}
           transparent
@@ -58,11 +55,8 @@ function FloatingOctahedron({ position, scale }: {
     <Float speed={2} rotationIntensity={1} floatIntensity={2}>
       <mesh ref={meshRef} position={position} scale={scale}>
         <octahedronGeometry args={[1]} />
-        <MeshDistortMaterial
+        <meshStandardMaterial
           color="#d4af37"
-          attach="material"
-          distort={0.3}
-          speed={2}
           roughness={0.2}
           metalness={0.9}
           transparent
@@ -92,11 +86,8 @@ function FloatingBox({ position, scale }: {
     <Float speed={2} rotationIntensity={1} floatIntensity={2}>
       <mesh ref={meshRef} position={position} scale={scale}>
         <boxGeometry args={[1, 1, 1]} />
-        <MeshDistortMaterial
+        <meshStandardMaterial
           color="#d4af37"
-          attach="material"
-          distort={0.3}
-          speed={2}
           roughness={0.2}
           metalness={0.9}
           transparent
@@ -126,11 +117,8 @@ function FloatingTorus({ position, scale }: {
     <Float speed={2} rotationIntensity={1} floatIntensity={2}>
       <mesh ref={meshRef} position={position} scale={scale}>
         <torusGeometry args={[1, 0.3, 16, 32]} />
-        <MeshDistortMaterial
+        <meshStandardMaterial
           color="#d4af37"
-          attach="material"
-          distort={0.3}
-          speed={2}
           roughness={0.2}
           metalness={0.9}
           transparent
@@ -138,48 +126,6 @@ function FloatingTorus({ position, scale }: {
         />
       </mesh>
     </Float>
-  )
-}
-
-function ParticleField() {
-  const particlesRef = useRef<THREE.Points>(null)
-  const particleCount = 500
-
-  const positions = useMemo(() => {
-    const pos = new Float32Array(particleCount * 3)
-    for (let i = 0; i < particleCount * 3; i += 3) {
-      pos[i] = (Math.random() - 0.5) * 20
-      pos[i + 1] = (Math.random() - 0.5) * 20
-      pos[i + 2] = (Math.random() - 0.5) * 20
-    }
-    return pos
-  }, [])
-
-  useFrame((state) => {
-    if (particlesRef.current) {
-      particlesRef.current.rotation.y = state.clock.elapsedTime * 0.02
-      particlesRef.current.rotation.x = state.clock.elapsedTime * 0.01
-    }
-  })
-
-  return (
-    <points ref={particlesRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.02}
-        color="#d4af37"
-        transparent
-        opacity={0.6}
-        sizeAttenuation
-      />
-    </points>
   )
 }
 
@@ -207,6 +153,43 @@ function GoldenRing({ position, scale }: { position: [number, number, number], s
   )
 }
 
+function GoldenParticles() {
+  const groupRef = useRef<THREE.Group>(null)
+  const particleCount = 50
+
+  const particles = useMemo(() => {
+    const arr = []
+    for (let i = 0; i < particleCount; i++) {
+      arr.push({
+        position: [
+          (Math.random() - 0.5) * 15,
+          (Math.random() - 0.5) * 15,
+          (Math.random() - 0.5) * 10 - 5
+        ] as [number, number, number],
+        scale: Math.random() * 0.03 + 0.01
+      })
+    }
+    return arr
+  }, [])
+
+  useFrame((state) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.02
+    }
+  })
+
+  return (
+    <group ref={groupRef}>
+      {particles.map((particle, i) => (
+        <mesh key={i} position={particle.position}>
+          <sphereGeometry args={[particle.scale, 8, 8]} />
+          <meshBasicMaterial color="#d4af37" transparent opacity={0.6} />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
 export default function ThreeBackground() {
   return (
     <div className="absolute inset-0 -z-10">
@@ -227,7 +210,7 @@ export default function ThreeBackground() {
           castShadow
         />
 
-        <ParticleField />
+        <GoldenParticles />
 
         <FloatingSphere position={[-3, 1, -2]} scale={0.6} />
         <FloatingOctahedron position={[3, -1, -3]} scale={0.8} />
