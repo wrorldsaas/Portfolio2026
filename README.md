@@ -10,7 +10,7 @@ This portfolio showcases the work and services of Guilherme Rafael de Souza, a 3
 - **Dark Theme** - Modern, sophisticated design optimized for showcasing visual work
 - **Responsive Design** - Fully responsive across all devices
 - **Smooth Animations** - CSS and JavaScript powered animations and transitions
-- **Portfolio Filter** - Interactive project filtering by category
+- **Video Portfolio** - Prominently displayed video showcase section
 - **Contact Form** - Professional contact form with mailto integration
 
 ## 📁 File Structure
@@ -27,8 +27,7 @@ Portfolio2026/
     └── images/
         ├── logo.png        # Brand logo
         ├── profile.jpg     # Profile/about image
-        ├── hero-bg.jpg     # Hero background
-        └── project[1-8].jpg # Portfolio project images
+        └── hero-bg.jpg     # Hero background
 ```
 
 ## 🚀 GitHub Pages Deployment

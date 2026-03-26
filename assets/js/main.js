@@ -271,80 +271,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ==========================================
-// Counter Animation
-// ==========================================
-const animateCounter = (element) => {
-    const target = parseInt(element.getAttribute('data-count'));
-    const duration = 2000;
-    const step = target / (duration / 16);
-    let current = 0;
-    
-    const updateCounter = () => {
-        current += step;
-        if (current < target) {
-            element.textContent = Math.floor(current);
-            requestAnimationFrame(updateCounter);
-        } else {
-            element.textContent = target;
-        }
-    };
-    
-    updateCounter();
-};
-
-// Intersection Observer for counters
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            counterObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-number').forEach(counter => {
-    counterObserver.observe(counter);
-});
-
-// ==========================================
-// Portfolio Filter
-// ==========================================
-const filterBtns = document.querySelectorAll('.filter-btn');
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Update active button
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const filter = btn.getAttribute('data-filter');
-        
-        portfolioItems.forEach(item => {
-            const category = item.getAttribute('data-category');
-            
-            if (filter === 'all' || category === filter) {
-                item.style.display = 'block';
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'scale(1)';
-                }, 50);
-            } else {
-                item.style.opacity = '0';
-                item.style.transform = 'scale(0.8)';
-                setTimeout(() => {
-                    item.style.display = 'none';
-                }, 300);
-            }
-        });
-    });
-});
-
-// ==========================================
 // Scroll Animations
 // ==========================================
 const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.service-card, .portfolio-item, .process-step, .contact-card');
+    const elements = document.querySelectorAll('.service-card, .video-showcase, .process-step, .contact-card');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
