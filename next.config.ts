@@ -5,9 +5,6 @@ const nextConfig: NextConfig = {
   // Repository: wrorldsaas/Portfolio2026
   // Website URL: https://wrorldsaas.github.io/Portfolio2026/
   basePath: "/Portfolio2026",
-  images: {
-    unoptimized: true,
-  },
   trailingSlash: true,
   typescript: {
     ignoreBuildErrors: true,

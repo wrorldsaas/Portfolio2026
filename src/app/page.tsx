@@ -351,7 +351,8 @@ export default function Portfolio() {
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                variants={{ ...scaleIn, transition: { delay: index * 0.1 } }}
+                variants={scaleIn}
+                custom={index}
                 whileHover={{ y: -10 }}
                 className="group"
               >
@@ -505,7 +506,8 @@ export default function Portfolio() {
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
-                  variants={{ ...fadeInUp, transition: { delay: index * 0.1 } }}
+                  variants={fadeInUp}
+                  custom={index}
                   onClick={() => setActiveProject(index)}
                   className={`cursor-pointer p-6 rounded-xl border transition-all duration-300 ${
                     activeProject === index
