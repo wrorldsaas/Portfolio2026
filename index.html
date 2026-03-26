@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guilherme Rafael de Souza - Professional 3D Artist and Social Media Manager. Creating stunning visual experiences and strategic social media presence for brands worldwide.">
+    <meta name="keywords" content="3D Artist, Social Media Manager, 3D Modeling, Animation, Motion Graphics, Visual Effects, Digital Marketing, Brand Strategy">
+    <meta name="author" content="Guilherme Rafael de Souza">
+    <title>Guilherme Rafael | 3D Artist & Social Media Manager</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Guilherme Rafael | 3D Artist & Social Media Manager">
+    <meta property="og:description" content="Creating stunning visual experiences and strategic social media presence for brands worldwide.">
+    <meta property="og:image" content="assets/images/hero-bg.jpg">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+
+    <!-- Three.js Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#home" class="nav-logo">
+                <img src="assets/images/logo.png" alt="GR Logo" class="logo-img">
+                <span class="logo-text">GR</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#portfolio" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#process" class="nav-link">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-close" id="nav-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero section" id="home">
+            <div class="hero-container container">
+                <div class="hero-content">
+                    <span class="hero-subtitle">3D Artist & Social Media Manager</span>
+                    <h1 class="hero-title">
+                        <span class="title-line">Guilherme</span>
+                        <span class="title-line accent">Rafael</span>
+                    </h1>
+                    <p class="hero-description">
+                        Creating stunning visual experiences and strategic social media presence 
+                        for brands that want to stand out in the digital landscape.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">
+                            <span>View My Work</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-count="50">0</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="30">0</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="5">0</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-scroll">
+                    <span>Scroll to explore</span>
+                    <div class="scroll-indicator">
+                        <div class="scroll-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Get to Know Me</span>
+                    <h2 class="section-title">About Me</h2>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-image-wrapper">
+                        <div class="about-image">
+                            <img src="assets/images/profile.jpg" alt="Guilherme Rafael de Souza">
+                        </div>
+                        <div class="about-decoration"></div>
+                    </div>
+                    
+                    <div class="about-info">
+                        <h3 class="about-heading">Crafting Digital Excellence</h3>
+                        <p class="about-text">
+                            I'm Guilherme Rafael de Souza, a passionate 3D Artist and Social Media Manager 
+                            based in Brazil. With a unique blend of creative and strategic skills, I help 
+                            brands create compelling visual narratives and build meaningful connections 
+                            with their audiences across digital platforms.
+                        </p>
+                        <p class="about-text">
+                            My journey in the creative industry has equipped me with expertise in 
+                            high-end 3D visualization, motion graphics, and comprehensive social media 
+                            strategy. I believe that exceptional visual content, combined with strategic 
+                            digital presence, is the key to standing out in today's competitive landscape.
+                        </p>
+                        
+                        <div class="about-skills">
+                            <h4 class="skills-title">Core Skills</h4>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <div class="skill-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                            <polyline points="2 17 12 22 22 17"></polyline>
+                                            <polyline points="2 12 12 17 22 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <span>3D Modeling</span>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                                        </svg>
+                                    </div>
+                                    <span>Motion Graphics</span>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                            <polyline points="21 15 16 10 5 21"></polyline>
+                                        </svg>
+                                    </div>
+                                    <span>Visual Design</span>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                        </svg>
+                                    </div>
+                                    <span>Social Media</span>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                                        </svg>
+                                    </div>
+                                    <span>Analytics</span>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                        </svg>
+                                    </div>
+                                    <span>Brand Strategy</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="about-tools">
+                            <h4 class="tools-title">Tools & Software</h4>
+                            <div class="tools-list">
+                                <span class="tool-tag">Blender</span>
+                                <span class="tool-tag">Cinema 4D</span>
+                                <span class="tool-tag">After Effects</span>
+                                <span class="tool-tag">Premiere Pro</span>
+                                <span class="tool-tag">Photoshop</span>
+                                <span class="tool-tag">Illustrator</span>
+                                <span class="tool-tag">Substance Painter</span>
+                                <span class="tool-tag">Unreal Engine</span>
+                                <span class="tool-tag">Hootsuite</span>
+                                <span class="tool-tag">Meta Business Suite</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">What I Offer</span>
+                    <h2 class="section-title">Services</h2>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- 3D Art Service -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">3D Art & Visualization</h3>
+                        <p class="service-description">
+                            High-quality 3D modeling, texturing, and rendering for product visualization, 
+                            architectural renders, character design, and environmental art. Bringing your 
+                            concepts to life with photorealistic detail and artistic flair.
+                        </p>
+                        <ul class="service-features">
+                            <li>Product Visualization</li>
+                            <li>Architectural Rendering</li>
+                            <li>Character & Creature Design</li>
+                            <li>Environment & Level Design</li>
+                            <li>Motion Graphics & Animation</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Social Media Management Service -->
+                    <div class="service-card featured">
+                        <div class="service-badge">Popular</div>
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Social Media Management</h3>
+                        <p class="service-description">
+                            Comprehensive social media strategy and management to build your brand's 
+                            digital presence. From content creation to community engagement, I help 
+                            businesses connect with their target audience effectively.
+                        </p>
+                        <ul class="service-features">
+                            <li>Content Strategy & Planning</li>
+                            <li>Visual Content Creation</li>
+                            <li>Community Management</li>
+                            <li>Analytics & Reporting</li>
+                            <li>Paid Advertising Campaigns</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Combined Service -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Complete Brand Package</h3>
+                        <p class="service-description">
+                            The perfect combination of 3D visual content and strategic social media 
+                            management. A holistic approach to building your brand's visual identity 
+                            and digital presence from the ground up.
+                        </p>
+                        <ul class="service-features">
+                            <li>Brand Identity Design</li>
+                            <li>3D Asset Creation</li>
+                            <li>Social Media Strategy</li>
+                            <li>Content Calendar</li>
+                            <li>Performance Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio section" id="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">My Work</span>
+                    <h2 class="section-title">Portfolio</h2>
+                </div>
+                
+                <div class="portfolio-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="3d">3D Art</button>
+                    <button class="filter-btn" data-filter="motion">Motion</button>
+                    <button class="filter-btn" data-filter="social">Social Media</button>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <!-- Project 1 -->
+                    <div class="portfolio-item" data-category="3d">
+                        <div class="portfolio-image">
+                            <img src="assets/images/project1.jpg" alt="Product Visualization">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3 class="portfolio-title">Premium Headphones</h3>
+                                    <p class="portfolio-category">Product Visualization</p>
+                                    <a href="#" class="portfolio-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="portfolio-item" data-category="3d">
+                        <div class="portfolio-image">
+                            <img src="assets/images/project2.jpg" alt="Abstract 3D Composition">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3 class="portfolio-title">Geometric Dimensions</h3>
+                                    <p class="portfolio-category">Abstract Art</p>
+                                    <a href="#" class="portfolio-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="portfolio-item" data-category="3d">
+                        <div class="portfolio-image">
+                            <img src="assets/images/project3.jpg" alt="Character Design">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3 class="portfolio-title">Warrior's Legacy</h3>
+                                    <p class="portfolio-category">Character Design</p>
+                                    <a href="#" class="portfolio-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="portfolio-item" data-category="3d">
+                        <div class="portfolio-image">
+                            <img src="assets/images/project4.jpg" alt="Architectural Visualization">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3 class="portfolio-title">Modern Living</h3>
+                                    <p class="portfolio-category">Architectural Visualization</p>
+                                    <a href="#" class="portfolio-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="portfolio-item" data-category="motion">
+                        <div class="portfolio-image">
+                            <img src="assets/images/project5.jpg" alt="Motion Graphics">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3 class="portfolio-title">Energy Splash</h3>
+                                    <p class="portfolio-category">Motion Graphics</p>
+                                    <a href="#" class="portfolio-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="portfolio-item" data-category="3d">
+                        <div class="portfolio-image">
+                            <img src="assets/images/project6.jpg" alt="Environment Design">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3 class="portfolio-title">Neon Streets</h3>
+                                    <p class="portfolio-category">Environment Design</p>
+                                    <a href="#" class="portfolio-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 7 -->
+                    <div class="portfolio-item" data-category="social">
+                        <div class="portfolio-image">
+                            <img src="assets/images/project7.jpg" alt="Social Media Campaign">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3 class="portfolio-title">Digital Connection</h3>
+                                    <p class="portfolio-category">Social Media Strategy</p>
+                                    <a href="#" class="portfolio-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 8 -->
+                    <div class="portfolio-item" data-category="3d">
+                        <div class="portfolio-image">
+                            <img src="assets/images/project8.jpg" alt="Automotive Design">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3 class="portfolio-title">Future Drive</h3>
+                                    <p class="portfolio-category">Automotive Design</p>
+                                    <a href="#" class="portfolio-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process section" id="process">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">How I Work</span>
+                    <h2 class="section-title">My Process</h2>
+                </div>
+                
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Discovery</h3>
+                            <p class="step-description">
+                                Every project begins with understanding your vision, goals, and requirements. 
+                                I take time to learn about your brand, target audience, and the story you 
+                                want to tell through visual content.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Concept & Strategy</h3>
+                            <p class="step-description">
+                                Based on our discovery phase, I develop a comprehensive creative direction 
+                                and strategy. This includes mood boards, style frames, and detailed project 
+                                timelines to ensure alignment with your expectations.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Creation</h3>
+                            <p class="step-description">
+                                The production phase where concepts come to life. Whether it's 3D modeling, 
+                                animation, or social media content, I maintain open communication with 
+                                regular updates and opportunities for feedback throughout the process.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Refinement</h3>
+                            <p class="step-description">
+                                Attention to detail makes the difference between good and exceptional. 
+                                I refine every element based on your feedback, ensuring the final deliverables 
+                                exceed expectations and align perfectly with your brand standards.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">05</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Delivery & Support</h3>
+                            <p class="step-description">
+                                Final deliverables are provided in your preferred formats with all necessary 
+                                assets. For ongoing projects like social media management, I provide 
+                                continuous support, analytics, and optimization recommendations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Let's Connect</span>
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p class="section-description">
+                        Have a project in mind or want to discuss how I can help elevate your brand? 
+                        I'd love to hear from you. Let's create something amazing together.
+                    </p>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:guilhermerafaelmeister2019@gmail.com">guilhermerafaelmeister2019@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <a href="tel:+5561992141310">+55 61 992141310</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <span>Brazil</span>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="https://github.com/wrorldsaas" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="ArtStation">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24-2.027a2.42 2.42 0 0 0-.462-1.428l-7.692-13.289a2.417 2.417 0 0 0-2.108-1.224h-4.053l11.062 19.187L24 15.696zm-14.654-4.192l5.314 9.194H4.32l5.026-9.194z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Behance">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M6.938 4.503c.702 0 1.34.06 1.92.188.577.13 1.07.33 1.485.61.41.28.733.65.96 1.12.225.47.34 1.05.34 1.73 0 .74-.17 1.36-.507 1.86-.338.5-.837.9-1.502 1.22.906.26 1.576.72 2.022 1.37.448.66.665 1.45.665 2.36 0 .75-.13 1.39-.41 1.93-.28.55-.67 1-1.16 1.35-.48.348-1.05.6-1.67.767-.61.165-1.252.254-1.91.254H0V4.51h6.938v-.007zM6.545 9.8c.57 0 1.03-.13 1.38-.4.35-.27.52-.68.52-1.24 0-.31-.05-.56-.17-.76-.11-.2-.27-.36-.47-.48-.2-.12-.43-.2-.69-.26-.26-.06-.54-.09-.84-.09H2.99v3.23h3.56zm.21 5.57c.32 0 .62-.03.9-.1.28-.07.53-.18.74-.34.21-.16.38-.37.5-.64.12-.27.18-.6.18-.99 0-.79-.22-1.36-.66-1.7-.44-.34-1.02-.51-1.73-.51H2.99v4.28h3.77zm9.885-5.93c.35-.35.77-.62 1.27-.81.5-.19 1.01-.29 1.55-.29.54 0 1.05.1 1.55.29.5.19.92.46 1.27.81.35.35.63.78.83 1.29.2.51.3 1.1.3 1.76v.73h-5.73c.04.62.25 1.11.62 1.47.37.36.86.54 1.47.54.44 0 .81-.1 1.11-.31.3-.21.53-.47.69-.78h1.94c-.26.87-.72 1.57-1.37 2.1-.65.53-1.47.8-2.45.8-.66 0-1.25-.11-1.78-.34-.53-.23-.98-.55-1.35-.96-.37-.41-.66-.9-.85-1.47-.19-.57-.29-1.2-.29-1.88 0-.67.1-1.29.3-1.85.2-.57.49-1.06.85-1.48l.07-.01zm4.04 2.26c-.06-.49-.26-.89-.58-1.19-.32-.3-.73-.46-1.22-.46-.52 0-.94.15-1.26.45-.32.3-.52.7-.58 1.2h3.64zM14.5 5.5h5v1.25h-5V5.5z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="3d-project">3D Art Project</option>
+                                    <option value="social-media">Social Media Management</option>
+                                    <option value="brand-package">Complete Brand Package</option>
+                                    <option value="collaboration">Collaboration</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Send Message</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/images/logo.png" alt="GR Logo" class="footer-logo">
+                    <p class="footer-tagline">Creating visual experiences that inspire and engage.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">3D Art</a></li>
+                            <li><a href="#services">Motion Graphics</a></li>
+                            <li><a href="#services">Social Media</a></li>
+                            <li><a href="#services">Brand Strategy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Guilherme Rafael de Souza. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
