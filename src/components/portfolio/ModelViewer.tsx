@@ -5,80 +5,107 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Environment, ContactShadows, Float, MeshDistortMaterial } from '@react-three/drei'
 import * as THREE from 'three'
 
-function ProductModel({ modelType }: { modelType: 'sphere' | 'cube' | 'torus' | 'complex' }) {
+function SphereModel() {
   const meshRef = useRef<THREE.Mesh>(null)
 
-  useFrame((state) => {
+  useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.005
     }
   })
 
-  const renderModel = () => {
-    switch (modelType) {
-      case 'sphere':
-        return (
-          <mesh ref={meshRef}>
-            <sphereGeometry args={[1.2, 64, 64]} />
-            <MeshDistortMaterial
-              color="#d4af37"
-              distort={0.2}
-              speed={2}
-              roughness={0.1}
-              metalness={0.9}
-            />
-          </mesh>
-        )
-      case 'cube':
-        return (
-          <mesh ref={meshRef} rotation={[0.5, 0.5, 0]}>
-            <boxGeometry args={[1.5, 1.5, 1.5]} />
-            <meshStandardMaterial
-              color="#d4af37"
-              roughness={0.2}
-              metalness={0.8}
-            />
-          </mesh>
-        )
-      case 'torus':
-        return (
-          <mesh ref={meshRef}>
-            <torusGeometry args={[1, 0.4, 32, 64]} />
-            <meshStandardMaterial
-              color="#d4af37"
-              roughness={0.1}
-              metalness={0.9}
-            />
-          </mesh>
-        )
-      case 'complex':
-        return (
-          <group ref={meshRef as any}>
-            <mesh>
-              <icosahedronGeometry args={[1, 0]} />
-              <meshStandardMaterial
-                color="#d4af37"
-                roughness={0.2}
-                metalness={0.8}
-                wireframe
-              />
-            </mesh>
-            <mesh>
-              <icosahedronGeometry args={[0.6, 0]} />
-              <meshStandardMaterial
-                color="#f4d03f"
-                roughness={0.1}
-                metalness={0.9}
-              />
-            </mesh>
-          </group>
-        )
+  return (
+    <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+      <mesh ref={meshRef}>
+        <sphereGeometry args={[1.2, 64, 64]} />
+        <MeshDistortMaterial
+          color="#d4af37"
+          distort={0.2}
+          speed={2}
+          roughness={0.1}
+          metalness={0.9}
+        />
+      </mesh>
+    </Float>
+  )
+}
+
+function CubeModel() {
+  const meshRef = useRef<THREE.Mesh>(null)
+
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.005
     }
-  }
+  })
 
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-      {renderModel()}
+      <mesh ref={meshRef} rotation={[0.5, 0.5, 0]}>
+        <boxGeometry args={[1.5, 1.5, 1.5]} />
+        <meshStandardMaterial
+          color="#d4af37"
+          roughness={0.2}
+          metalness={0.8}
+        />
+      </mesh>
+    </Float>
+  )
+}
+
+function TorusModel() {
+  const meshRef = useRef<THREE.Mesh>(null)
+
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.005
+    }
+  })
+
+  return (
+    <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+      <mesh ref={meshRef}>
+        <torusGeometry args={[1, 0.4, 32, 64]} />
+        <meshStandardMaterial
+          color="#d4af37"
+          roughness={0.1}
+          metalness={0.9}
+        />
+      </mesh>
+    </Float>
+  )
+}
+
+function ComplexModel() {
+  const groupRef = useRef<THREE.Group>(null)
+
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.005
+    }
+  })
+
+  return (
+    <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+      <group ref={groupRef}>
+        <mesh>
+          <icosahedronGeometry args={[1, 0]} />
+          <meshStandardMaterial
+            color="#d4af37"
+            roughness={0.2}
+            metalness={0.8}
+            wireframe
+          />
+        </mesh>
+        <mesh>
+          <icosahedronGeometry args={[0.6, 0]} />
+          <meshStandardMaterial
+            color="#f4d03f"
+            roughness={0.1}
+            metalness={0.9}
+          />
+        </mesh>
+      </group>
     </Float>
   )
 }
@@ -89,6 +116,13 @@ interface ModelViewerProps {
 }
 
 export default function ModelViewer({ modelType = 'sphere', className = '' }: ModelViewerProps) {
+  const ModelComponent = {
+    sphere: SphereModel,
+    cube: CubeModel,
+    torus: TorusModel,
+    complex: ComplexModel,
+  }[modelType]
+
   return (
     <div className={`w-full h-full min-h-[300px] ${className}`}>
       <Canvas
@@ -108,7 +142,7 @@ export default function ModelViewer({ modelType = 'sphere', className = '' }: Mo
           />
           <pointLight position={[-5, -5, -5]} intensity={0.5} color="#f4d03f" />
 
-          <ProductModel modelType={modelType} />
+          <ModelComponent />
 
           <ContactShadows
             position={[0, -1.5, 0]}

@@ -2,14 +2,12 @@
 
 import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Float, MeshDistortMaterial, Sphere, Box, Torus, Octahedron } from '@react-three/drei'
+import { Float, MeshDistortMaterial } from '@react-three/drei'
 import * as THREE from 'three'
 
-function FloatingGeometry({ position, rotation, scale, geometry }: {
+function FloatingSphere({ position, scale }: {
   position: [number, number, number]
-  rotation?: [number, number, number]
   scale?: number
-  geometry: 'sphere' | 'box' | 'torus' | 'octahedron'
 }) {
   const meshRef = useRef<THREE.Mesh>(null)
   const randomSpeed = useMemo(() => Math.random() * 0.5 + 0.5, [])
@@ -22,28 +20,122 @@ function FloatingGeometry({ position, rotation, scale, geometry }: {
     }
   })
 
-  const GeometryComponent = {
-    sphere: Sphere,
-    box: Box,
-    torus: Torus,
-    octahedron: Octahedron,
-  }[geometry]
+  return (
+    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+      <mesh ref={meshRef} position={position} scale={scale}>
+        <sphereGeometry args={[1, 32, 32]} />
+        <MeshDistortMaterial
+          color="#d4af37"
+          attach="material"
+          distort={0.3}
+          speed={2}
+          roughness={0.2}
+          metalness={0.9}
+          transparent
+          opacity={0.7}
+        />
+      </mesh>
+    </Float>
+  )
+}
+
+function FloatingOctahedron({ position, scale }: {
+  position: [number, number, number]
+  scale?: number
+}) {
+  const meshRef = useRef<THREE.Mesh>(null)
+  const randomSpeed = useMemo(() => Math.random() * 0.5 + 0.5, [])
+
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x += 0.002 * randomSpeed
+      meshRef.current.rotation.y += 0.003 * randomSpeed
+      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * randomSpeed) * 0.3
+    }
+  })
 
   return (
     <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-      <mesh ref={meshRef} position={position} rotation={rotation} scale={scale}>
-        <GeometryComponent args={geometry === 'torus' ? [1, 0.3, 16, 32] : geometry === 'octahedron' ? [1] : [1, 32, 32]}>
-          <MeshDistortMaterial
-            color="#d4af37"
-            attach="material"
-            distort={0.3}
-            speed={2}
-            roughness={0.2}
-            metalness={0.9}
-            transparent
-            opacity={0.7}
-          />
-        </GeometryComponent>
+      <mesh ref={meshRef} position={position} scale={scale}>
+        <octahedronGeometry args={[1]} />
+        <MeshDistortMaterial
+          color="#d4af37"
+          attach="material"
+          distort={0.3}
+          speed={2}
+          roughness={0.2}
+          metalness={0.9}
+          transparent
+          opacity={0.7}
+        />
+      </mesh>
+    </Float>
+  )
+}
+
+function FloatingBox({ position, scale }: {
+  position: [number, number, number]
+  scale?: number
+}) {
+  const meshRef = useRef<THREE.Mesh>(null)
+  const randomSpeed = useMemo(() => Math.random() * 0.5 + 0.5, [])
+
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x += 0.002 * randomSpeed
+      meshRef.current.rotation.y += 0.003 * randomSpeed
+      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * randomSpeed) * 0.3
+    }
+  })
+
+  return (
+    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+      <mesh ref={meshRef} position={position} scale={scale}>
+        <boxGeometry args={[1, 1, 1]} />
+        <MeshDistortMaterial
+          color="#d4af37"
+          attach="material"
+          distort={0.3}
+          speed={2}
+          roughness={0.2}
+          metalness={0.9}
+          transparent
+          opacity={0.7}
+        />
+      </mesh>
+    </Float>
+  )
+}
+
+function FloatingTorus({ position, scale }: {
+  position: [number, number, number]
+  scale?: number
+}) {
+  const meshRef = useRef<THREE.Mesh>(null)
+  const randomSpeed = useMemo(() => Math.random() * 0.5 + 0.5, [])
+
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x += 0.002 * randomSpeed
+      meshRef.current.rotation.y += 0.003 * randomSpeed
+      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * randomSpeed) * 0.3
+    }
+  })
+
+  return (
+    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+      <mesh ref={meshRef} position={position} scale={scale}>
+        <torusGeometry args={[1, 0.3, 16, 32]} />
+        <MeshDistortMaterial
+          color="#d4af37"
+          attach="material"
+          distort={0.3}
+          speed={2}
+          roughness={0.2}
+          metalness={0.9}
+          transparent
+          opacity={0.7}
+        />
       </mesh>
     </Float>
   )
@@ -137,10 +229,10 @@ export default function ThreeBackground() {
 
         <ParticleField />
 
-        <FloatingGeometry position={[-3, 1, -2]} geometry="sphere" scale={0.6} />
-        <FloatingGeometry position={[3, -1, -3]} geometry="octahedron" scale={0.8} />
-        <FloatingGeometry position={[-2, -2, -1]} geometry="box" scale={0.5} />
-        <FloatingGeometry position={[2, 2, -2]} geometry="torus" scale={0.4} />
+        <FloatingSphere position={[-3, 1, -2]} scale={0.6} />
+        <FloatingOctahedron position={[3, -1, -3]} scale={0.8} />
+        <FloatingBox position={[-2, -2, -1]} scale={0.5} />
+        <FloatingTorus position={[2, 2, -2]} scale={0.4} />
 
         <GoldenRing position={[0, 0, -5]} scale={3} />
         <GoldenRing position={[4, -3, -4]} scale={1.5} />
