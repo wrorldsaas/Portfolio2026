@@ -16,6 +16,28 @@
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/styles.css">
     
+    <!-- Portfolio Image Styles (replaces YouTube iframes) -->
+    <style>
+        .portfolio-videos .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #0a0a0a;
+        }
+        .portfolio-videos .video-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .portfolio-videos .video-wrapper img:hover {
+            transform: scale(1.03);
+        }
+    </style>
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     
@@ -327,44 +349,38 @@
                 </div>
                 
                 <div class="portfolio-videos">
-                    <!-- Video 1 - Ayuba Project -->
+                    <!-- Image 1 - Ayuba Project -->
                     <div class="video-showcase">
                         <div class="video-wrapper">
-                            <iframe 
-                                width="100%" 
-                                height="100%" 
-                                src="https://www.youtube.com/embed/0deMRmMwtGc" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                            </iframe>
+                            <img 
+                                src="assets/images/portfolio-ayuba.jpg" 
+                                alt="Ayuba Project - 3D Visualization"
+                                loading="lazy"
+                            >
                         </div>
                         <div class="video-info">
                             <h3 class="video-title">Ayuba Project</h3>
                             <p class="video-description">
                                 A showcase of 3D visualization and creative design work demonstrating 
-                                technical proficiency and artistic vision.
+                                technical proficiency and artistic vision. one asset by Tripo AI CC BY 4.0.
                             </p>
                         </div>
                     </div>
                     
-                    <!-- Video 2 - Showcase -->
+                    <!-- Image 2 - Showcase -->
                     <div class="video-showcase">
                         <div class="video-wrapper">
-                            <iframe 
-                                width="100%" 
-                                height="100%" 
-                                src="https://www.youtube.com/embed/94HLvWEqHqk" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                            </iframe>
+                            <img 
+                                src="assets/images/portfolio-showcase.jpg" 
+                                alt="Project Showcase - 3D Artistry"
+                                loading="lazy"
+                            >
                         </div>
                         <div class="video-info">
                             <h3 class="video-title">Project Showcase</h3>
                             <p class="video-description">
                                 An immersive visual experience highlighting creative capabilities 
-                                and professional 3D artistry.
+                                and professional 3D artistry. one asset by Tripo AI CC BY 4.0.
                             </p>
                         </div>
                     </div>
